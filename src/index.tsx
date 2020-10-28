@@ -15,8 +15,8 @@ interface Props {
 }
 
 
-const DEFAULT_WINDOW_WIDTH = 300;
-const DEFAULT_WINDOW_HEIGHT = 150;
+const DEFAULT_WINDOW_WIDTH = 1000;
+const DEFAULT_WINDOW_HEIGHT = 1000;
 // const DEFAULT_UNIVERSE_WIDTH = 300;
 // const DEFAULT_UNIVERSE_HEIGHT = 180;
 
@@ -36,7 +36,7 @@ export const UniverseWindow = (props: Props) => {
 
   // let universe = Universe.new();
   // Which is the same as:
-  let config = UniverseConfig.new().set_override_size(5, 3);
+  let config = UniverseConfig.new().set_override_size(40, 40);
   let universe: Universe = config.configure();
   // or
   // let universe = builder.from(rle_string);
@@ -66,6 +66,13 @@ export const UniverseWindow = (props: Props) => {
       universe.connect_canvas(canvas);
       universe.draw();
       console.log(canvasRef.current)
+
+      let renderLoop = () => {
+        universe.tick();
+        universe.draw();
+        requestAnimationFrame(renderLoop);
+      };
+      requestAnimationFrame(renderLoop);
     }
     
   }, []);
