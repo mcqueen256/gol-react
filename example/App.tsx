@@ -14,7 +14,7 @@ const App = () => {
   }}>
     <UniverseWindow>
       <h1>Hello!</h1>
-      <p>This is a sentence.</p>
+      <p>This is an inner element.</p>
     </UniverseWindow>
   </div>
 }

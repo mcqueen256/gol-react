@@ -36,8 +36,8 @@ export const UniverseWindow = (props: Props) => {
 
   // let universe = Universe.new();
   // Which is the same as:
-  let config = UniverseConfig.new().set_override_size(40, 40);
-  let universe: Universe = config.configure();
+  let config = UniverseConfig.new().set_override_size(400, 400);
+  let universe: Universe = config.construct();
   // or
   // let universe = builder.from(rle_string);
 
